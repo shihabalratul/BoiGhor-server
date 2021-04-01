@@ -39,7 +39,7 @@ client.connect(err => {
 		console.log(req.params.id)
 		const id = ObjectId(req.params.id)
 		bookCollection.findOneAndDelete({ _id: id })
-			.then(res => console.log(res))
+			.then(result => res.send(result))
 	})
 
 	app.get('/find/:id', (req, res) => {
@@ -75,7 +75,7 @@ client.connect(err => {
 		console.log(req.params.id)
 		const id = ObjectId(req.params.id)
 		orderCollection.findOneAndDelete({ _id: id })
-			.then(res => console.log(res))
+			.then(data => res.send(data))
 	})
 
 });
